@@ -35,7 +35,10 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+	$keycolor: hsl(0, 0%, 83%);
+	$operatorscolor: hsl(49, 100%, 50%);
+
 	.grid {
 		background: black;
 		font-size: 4rem;
@@ -50,12 +53,20 @@ export default {
 	.grid div {
 		border: 2px solid gray;
 		border-radius: 20px;
-		background-color: lightgrey;
+		background-color: $keycolor;
 		padding: 15px;
+
+		&:hover {
+			background-color: lighten($keycolor, 40%)
+		}
 	}
 
 	div.operators {
-		background-color: orange;
+		background-color: $operatorscolor;
+
+		&:hover {
+			background-color: lighten($operatorscolor, 40%);
+		}
 	}
 
 	.zero {
