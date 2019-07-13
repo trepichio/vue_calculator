@@ -1,32 +1,34 @@
 <template>
-	<div class="grid">
-		<div>AC</div>
-		<div>+/-</div>
-		<div>%</div>
-		<div class="operators">&divide</div>
-		<div>7</div>
-		<div>8</div>
-		<div>9</div>
-		<div class="operators">x</div>
-		<div>4</div>
-		<div>5</div>
-		<div>6</div>
-		<div class="operators">-</div>
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div class="operators">+</div>
-		<div class="zero">0</div>
-		<div>,</div>
-		<div class="operators">=</div>
-	</div>
+  <div
+    class="grid"
+    @click="$emit('setInput',$event.target.dataset.value, $event)"
+  >
+    <div data-value='clear'>AC</div>
+    <div data-value='sign'>+/-</div>
+    <div data-value='percent'>%</div>
+    <div data-value='divide' class="operators">&divide</div>
+    <div data-value='7'>7</div>
+    <div data-value='8'>8</div>
+    <div data-value='9'>9</div>
+    <div data-value='multiply' class="operators">x</div>
+    <div data-value='4'>4</div>
+    <div data-value='5'>5</div>
+    <div data-value='6'>6</div>
+    <div data-value='minus' class="operators">-</div>
+    <div data-value='1'>1</div>
+    <div data-value='2'>2</div>
+    <div data-value='3'>3</div>
+    <div data-value='sum' class="operators">+</div>
+    <div data-value='0' class="zero">0</div>
+    <div data-value='dot'>,</div>
+    <div data-value='equals' class="operators">=</div>
+  </div>
 </template>
 
 <script>
 export default {
 
-  name: 'keyboard',
-
+  name: 'Keyboard',
   data () {
     return {
 

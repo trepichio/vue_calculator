@@ -1,18 +1,18 @@
 <template>
-	<div class="display">
-		{{input}}
-	</div>
+  <div class="display">
+    {{ input }}
+  </div>
 </template>
 
 <script>
 export default {
 
-  name: 'display',
+  name: 'Display',
   props: {
     input: {
-      type: Number,
+      type: String,
       required: false,
-      default: 0
+      default: '0'
     }
   },
   data () {
