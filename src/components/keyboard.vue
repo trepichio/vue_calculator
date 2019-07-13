@@ -3,7 +3,7 @@
     class="grid"
     @click="$emit('setInput',$event.target.dataset.value, $event)"
   >
-    <div data-value='clear'>AC</div>
+    <div data-value='clear'>{{ memory > 0 ? 'C' : 'AC'}}</div>
     <div data-value='sign'>+/-</div>
     <div data-value='percent'>%</div>
     <div data-value='divide' class="operators">&divide</div>
@@ -29,6 +29,7 @@
 export default {
 
   name: 'Keyboard',
+  props: ['memory'],
   data () {
     return {
 

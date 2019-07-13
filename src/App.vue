@@ -6,6 +6,7 @@
       />
       <keyboard
         @setInput="setInput"
+        :memory="memory.length"
       />
     </div>
   </div>
