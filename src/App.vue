@@ -41,6 +41,7 @@ export default {
         this[payload]()
       }
       else if (!operator) {
+        if (this.input.length >= 9) return;
         this.input += payload
       }
       else {
@@ -112,7 +113,9 @@ export default {
       let operation = this.memory[last_index-1]
       let b = parseFloat(this.memory[last_index])
       console.warn(a, operation, b)
-      return this[operation](a,b)
+      let output = this[operation](a,b)
+      console.log("output.length", output.toString().length)
+      return output.toString().length >= 8 ? output.toExponential(2) : output
     },
     sum: function (a,b) {
       console.log('sum function')
