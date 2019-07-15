@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .display {
   background-color: #4DADC9;
   width: 100%;
@@ -34,5 +34,9 @@ export default {
   font-family: monospace;
   font-size: 13rem;
   padding: 1rem 1rem 0 1rem;
+
+  @media screen and (max-width: 361px) {
+    font-size: 7rem;
+  }
 }
 </style>

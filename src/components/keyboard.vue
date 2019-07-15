@@ -44,13 +44,17 @@ export default {
 
 	.grid {
 		background: black;
-		font-size: 4rem;
+		// font-size: 4rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-gap: 8px;
-		padding: 1rem;
+		grid-gap: 1vh;
+		padding: 1vh;
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
+		@media screen and (max-width: 361px) {
+			// font-size: 2rem;
+			grid-gap: .5rem
+		}
 	}
 
 	.grid div {
@@ -70,6 +74,11 @@ export default {
 		&:hover {
 			background-color: lighten($operatorscolor, 40%);
 		}
+	}
+
+	.grid > div:active {
+		color: #fff;
+		background-color: darken($keycolor, 50%);
 	}
 
 	.zero {

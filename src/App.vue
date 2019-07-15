@@ -149,7 +149,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -170,13 +170,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .calculator-container {
-  width: 60%;
-  margin: 0 auto;
+  min-width: fit-content;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.7));
 }
 
+@media screen and (min-width: 768px) {
+  .calculator-container {
+    min-width: 764px;
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
 </style>
