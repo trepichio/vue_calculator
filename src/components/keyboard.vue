@@ -62,6 +62,17 @@ export default {
 		border-radius: 20px;
 		background-color: $keycolor;
 		padding: 15px;
+		min-width: 40px;
+		font-size: 3vh;
+		/* iPads (landscape) ----------- */
+		@media only screen
+		and (min-device-width : 301px)
+		and (max-device-width : 1024px)
+		and (orientation : landscape) {
+		  /* Styles */
+		  font-size: 9vh;
+		  padding: 0
+		}
 
 		&:hover {
 			background-color: lighten($keycolor, 40%)
@@ -79,6 +90,7 @@ export default {
 	.grid > div:active {
 		color: #fff;
 		background-color: darken($keycolor, 50%);
+		// transition: all .5s;
 	}
 
 	.zero {

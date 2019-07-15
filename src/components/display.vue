@@ -34,9 +34,13 @@ export default {
   font-family: monospace;
   font-size: 13rem;
   padding: 1rem 1rem 0 1rem;
-
-  @media screen and (max-width: 361px) {
-    font-size: 7rem;
+  /* iPads (landscape) ----------- */
+  @media only screen
+  and (min-device-width : 301px)
+  and (max-device-width : 1024px)
+  and (orientation : landscape) {
+    /* Styles */
+    font-size: 15vh;
   }
 }
 </style>
