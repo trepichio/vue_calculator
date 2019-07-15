@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="calculator-container">
+    <div class="calculator-container" ontouchstart="">
       <display
         :input="input"
       />
