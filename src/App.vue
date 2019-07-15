@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="calculator-container" ontouchstart="">
+    <div class="calculator-container disable-selection" ontouchstart="">
       <display
         :input="input"
       />
@@ -175,13 +175,20 @@ body {
 .calculator-container {
   min-width: fit-content;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.7));
-}
 
-@media screen and (min-width: 768px) {
-  .calculator-container {
+  @media screen and (min-width: 768px) {
     min-width: 764px;
     max-width: 60%;
     margin: 0 auto;
   }
 }
+
+.disable-selection {
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
 </style>
