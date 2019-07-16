@@ -1,10 +1,11 @@
 <template>
-  <div class="display">
+  <div class="display" ref="dspInput">
     {{ input }}
   </div>
 </template>
 
 <script>
+import textFit from 'textfit'
 export default {
 
   name: 'Display',
@@ -19,6 +20,16 @@ export default {
     return {
 
     }
+  },
+  watch: {
+    'input': function (val, oldVal) {
+      this.$refs.dspInput.textContent = val
+      this.$emit('onResize');
+    }
+  },
+  mounted() {
+    console.log('mounted display',this.$refs.dspInput)
+    this.$emit('onResize');
   }
 }
 </script>
@@ -26,21 +37,16 @@ export default {
 <style lang="scss" scoped>
 .display {
   background-color: #4DADC9;
-  width: 100%;
+  min-width: 100%;
   text-align: right;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   color: #fff;
   font-family: monospace;
-  font-size: 13rem;
+  height: 15vmax;
   padding: 1rem 1rem 0 1rem;
-  /* iPads (landscape) ----------- */
-  @media only screen
-  and (min-device-width : 301px)
-  and (max-device-width : 1024px)
-  and (orientation : landscape) {
-    /* Styles */
-    font-size: 15vh;
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    height: 11vmax;
   }
 }
 </style>

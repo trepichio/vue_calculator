@@ -51,27 +51,27 @@ export default {
 		padding: 1vh;
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
-		@media screen and (max-width: 361px) {
-			// font-size: 2rem;
-			grid-gap: .5rem
-		}
 	}
 
 	.grid div {
 		border: 2px solid gray;
 		border-radius: 20px;
 		background-color: $keycolor;
-		padding: 15px;
+		padding: 10px;
 		min-width: 40px;
-		font-size: 3vh;
-		/* iPads (landscape) ----------- */
-		@media only screen
-		and (min-device-width : 301px)
-		and (max-device-width : 1024px)
-		and (orientation : landscape) {
-		  /* Styles */
-		  font-size: 9vh;
-		  padding: 0
+		font-size: 6.5vmax;
+
+		@media screen and (min-width: 426px) and (max-width: 768px) and (orientation: portrait) {
+			font-size: 8vmax;
+			padding: 2px;
+		}
+		@media screen and (min-width: 426px) and (max-width: 768px)  and (orientation: landscape)  {
+			font-size: 9vmin;
+			padding: 2px;
+		}
+
+		@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+			font-size: 3vmax;
 		}
 
 		&:hover {

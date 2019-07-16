@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div class="calculator-container disable-selection" ontouchstart="">
-      <display
+      <display ref="dspComp"
         :input="input"
+        @onResize="onResize"
       />
       <keyboard
         @setInput="setInput"
@@ -15,6 +16,8 @@
 <script>
 import display from '@/components/display.vue';
 import keyboard from '@/components/keyboard.vue';
+import textFit from 'textfit';
+
 export default {
   name: 'app',
   components: {
@@ -41,7 +44,7 @@ export default {
         this[payload]()
       }
       else if (!operator) {
-        if (this.input.length >= 9) return;
+        // if (this.input.length >= 9) return;
         this.input += payload
       }
       else {
@@ -141,13 +144,28 @@ export default {
       this.save(output)
       return output
     },
-    equals: function (a,b) {
+    equals: function (a) {
       console.log('equals function')
       let output = a + 0
       this.save(output)
       return output
     },
+    onResize: function (event) {
+      const displayEl = this.$refs.dspComp.$refs.dspInput
+      console.log("displayEl height", displayEl.clientHeight);
 
+      textFit(displayEl, {maxFontSize: displayEl.clientHeight})
+        // console.log('window has been resized', this.$refs.dspComp.$refs.dspInput)
+      }
+  },
+  mounted () {
+    this.onResize()
+    // Register an event listener when the Vue component is ready
+     window.addEventListener('resize', this.onResize)
+  },
+  beforeDestroy() {
+    // Unregister the event listener before destroying this Vue instance
+    window.removeEventListener('resize', this.onResize)
   }
 }
 </script>
@@ -176,12 +194,12 @@ body {
 }
 
 .calculator-container {
-  min-width: fit-content;
+  max-width: 100vw;
   filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.7));
 
   @media screen and (min-width: 768px) {
-    min-width: 764px;
-    max-width: 60%;
+    min-width: 745px;
+    max-width: 80%;
     margin: 0 auto;
   }
 }
